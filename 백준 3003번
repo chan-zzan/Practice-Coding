@@ -1,0 +1,27 @@
+// 백준 3003번 킹, 퀸, 룩, 비숍, 나이트, 폰
+
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+int main()
+{
+    const int num = 6;
+    int Chess[num] = { 1,1,2,2,2,8 };
+    int myInput[6] = {};
+
+    cin >> myInput[0] >> myInput[1] >> myInput[2] >> myInput[3] >> myInput[4] >> myInput[5];
+
+    for (int i = 0; i < num; i++)
+    {
+        if (myInput[i] < 0 || myInput[i] > 10)
+        {
+            assert(0);
+        }
+        else
+        {
+            cout << Chess[i] - myInput[i] << " ";
+        }
+
+    }
+}
