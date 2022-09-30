@@ -1,0 +1,35 @@
+// 백준 25304번 영수증
+
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+int main()
+{
+	int X, N, a, b;
+	int sum = 0;
+
+	cin >> X;
+	cin >> N;
+	assert(X >= 1 && X <= 1000000000);
+	assert(N >= 1 && N <= 100);
+
+	for (int i = 0; i < N; i++)
+	{
+		cin >> a >> b;
+
+		assert(a >= 1 && a <= 1000000);
+		assert(b >= 1 && b <= 10);
+
+		sum += a * b;
+	}
+	
+	if (sum == X)
+	{
+		cout << "Yes";
+	}
+	else
+	{
+		cout << "No";
+	}
+}
