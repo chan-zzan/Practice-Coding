@@ -1,0 +1,58 @@
+// 백준 2581번 소수
+
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+int main()
+{
+	int M, N;
+
+	cin >> M;
+	cin >> N;
+	assert(M <= 10000 && M <= N);
+	assert(N <= 10000 && N >= 1);
+
+	int sum = 0;
+	int min = 0;
+
+	for (int i = N; i >= M; i--)
+	{
+		if (i == 2)
+		{
+			// 2는 소수
+			sum += i;
+			min = i;
+			continue;
+		}
+
+		// 소수인지 확인
+		for (int j = i / 2 + 1; j >= 2; j--)
+		{
+			if (i % j == 0)
+			{
+				// 소수가 아님 -> 다음 수로 넘어감
+				break;
+			}
+
+			if (j == 2)
+			{
+				// 소수인 경우
+				sum += i;
+				min = i;
+			}
+		}
+	}
+
+	if (sum == 0)
+	{
+		// 범위내에 소수가 없는 경우
+		cout << -1;
+	}
+	else
+	{
+		// 소수들의 합과 소수중 최솟값을 출력
+		cout << sum << endl;
+		cout << min;
+	}
+}
